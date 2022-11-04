@@ -13,12 +13,13 @@ const logo = (
 
 const cart = (
   <span className={style.cart}>
-  <NavLink to="/cart" className={activeLink} activeClassName="activated">Cart<FaCartPlus size={20}/>
+  <Link to="/cart" >Cart<FaCartPlus size={20}/>
   <p>0</p>
-  </NavLink>
+  </Link>
 </span>
 )
-const activeLink = ({isActive}) => (isActive ? `${style.active}` : "");
+
+const activeLink = ({ isActive }) => (isActive ? `${style.active}` : "");
 
 const Header = () => {
   const [showMenu, setShowMenu]= useState(false);
@@ -32,22 +33,25 @@ const Header = () => {
      <header>
       <div className={style.Header}>
        <nav className={showMenu ? `${style["show-nav"]}` : `${style["hide-nav"]}`}>
+          <div className={style["logos"]}>
             {logo}
+            <FaTimes className={style.btns} size={22} onClick={hideMenu}/>
+          </div>
         <div className={showMenu ? `${style["nav-wrapper"]} ${style["show-nav-wrapper"]}`: `${style["nav-wrapper"]}`} onClick={hideMenu}>
         </div> 
         <ul onClick={hideMenu}>
           <li>
-             <NavLink  to='/' className={activeLink} activeClassName="activated">Home</NavLink>
+             <NavLink  to="/"  className={ ({ isActive }) => (!isActive ? `${style.active}` : "")}>Home</NavLink>
           </li>
           <li>
-             <NavLink to="/contact" className={activeLink} activeClassName="activated">Contact Us</NavLink>
+             <NavLink to="/contact" className={activeLink} >Contact Us</NavLink>
           </li>
         </ul>
         <div className={style["header-right"]} onClick={hideMenu}>
             <span className={style.links}>
-              <NavLink to='/login' className={activeLink} activeClassName="activated">Login</NavLink>
-              <NavLink to='/register' className={activeLink} activeClassName="activated">register</NavLink>
-              <NavLink to='/order-history' className={activeLink} activeClassName="activated">My Orders</NavLink>
+              <NavLink to='/login' className={activeLink} >Login</NavLink>
+              <NavLink to='/register' className={activeLink} >register</NavLink>
+              <NavLink to='/order-history' className={activeLink}>My Orders</NavLink>
             </span>
              {cart}
           </div>

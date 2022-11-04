@@ -31,7 +31,7 @@ header {
       color: orangered;
     }
   }
-
+ 
   nav {
     width: 98%;
     display: flex;
@@ -60,6 +60,12 @@ header {
           }
         }
       }
+    }
+  }
+  .logos{
+    display: flex;
+    .btns{
+      display: none;
     }
   }
 
@@ -157,7 +163,13 @@ header {
           }
         }
       }
-
+      .logos{
+        display: flex;
+        .btns{
+          display: block;
+          cursor: pointer;
+        }
+      }
       .header-right {
            display: block;
         .cart {
@@ -245,10 +257,10 @@ header {
 
 .active::after {
   content: "";
+  background-color: #fff;
   position: absolute;
   left: 0;
   bottom: -3px;
   width: 100%;
   height: 2px;
-  background-color: #fff;
 }
