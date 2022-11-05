@@ -57,6 +57,13 @@
         align-items: center;
         margin-top: 1rem;
       }
+      .reset{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+      }
     }
   
     @keyframes slide-up {
