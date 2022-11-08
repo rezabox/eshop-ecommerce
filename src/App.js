@@ -6,11 +6,13 @@ import Register from './pages/auth/Register';
 import Reset from './pages/auth/Reset';
 import Contact from './pages/contact/Contact';
 import Home from './pages/home/Home';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <>
     <BrowserRouter>
+    <ToastContainer style={{ fontSize: "13px" }}/>
       <Header/>
         <Routes>
             <Route path="/" element={<Home/>}/>
