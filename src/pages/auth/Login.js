@@ -37,7 +37,7 @@ const Login = () => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const user = userCredential.user;
+        // const user = userCredential.user;
         setIsLoader(false);
         toast.success("Welcome to account");
         navigate("/");
@@ -55,7 +55,7 @@ const provider = new GoogleAuthProvider();
      const auth = getAuth();
      signInWithPopup(auth, provider)
        .then((result) => {
-         const user = result.user;
+        //  const user = result.user;
          toast.success("Login Successfully");
          navigate("/");
        }).catch((error) => {

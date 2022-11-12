@@ -11,6 +11,7 @@ import { HiDesktopComputer, HiOutlineMenuAlt3 } from "react-icons/hi";
 import { FaUserCircle } from "react-icons/fa";
 import { useDispatch } from 'react-redux';
 import { REMOVE_ACTIVE_USER, SET_ACTIVE_USER } from '../../redux/slice/authSlice';
+import ShowOnLogin, { ShowOnLogout } from '../hiddenLink/hiddenLink';
 
 
 const logo = (
@@ -89,7 +90,7 @@ useEffect(()=>{
           </div>
         <div className={showMenu ? `${style["nav-wrapper"]} ${style["show-nav-wrapper"]}`: `${style["nav-wrapper"]}`} onClick={hideMenu}>
         </div> 
-        <ul onClick={hideMenu}>
+        <ul onClick={hideMenu} style={{marginRight:80}} >
           <li>
              <NavLink  to="/"  className={ ({ isActive }) => (!isActive ? `${style.active}` : "")}>Home</NavLink>
           </li>
@@ -99,15 +100,13 @@ useEffect(()=>{
         </ul>
         <div className={style["header-right"]} onClick={hideMenu}>
             <span className={style.links}>
-              <NavLink to='/login' className={activeLink} >Login</NavLink>
-              <a href='#' className={style.person}><FaUserCircle size={16}/> Hi, {uName}</a>
-              <NavLink to='/register' className={activeLink} >register</NavLink>
-              <NavLink to='/order-history' className={activeLink}>My Orders</NavLink>
-              <NavLink to='/' onClick={logoutUser}>Logout</NavLink>
+              <ShowOnLogout><NavLink to='/login' className={activeLink} >Login</NavLink></ShowOnLogout> 
+              <ShowOnLogin><a href='#home' style={{color : "#ff7722"}} className={style.logos}><FaUserCircle size={16}/> Hi,<span style={{color: "#fff"}}>{uName}</span></a></ShowOnLogin>
+              <ShowOnLogin><NavLink to='/order-history' className={activeLink}>My Orders</NavLink></ShowOnLogin>
+              <ShowOnLogin><NavLink to='/' onClick={logoutUser}>Logout</NavLink></ShowOnLogin>
             </span>
              {cart}
-          </div>
-                     
+          </div>     
        </nav>
        <div className={style["menu-icon"]}>
          {logo}
