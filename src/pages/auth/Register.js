@@ -52,7 +52,7 @@ const Register = () => {
     <> 
     <ToastContainer style={{ fontSize: "15px" }}
     position="top-right"
-    autoClose={6000}
+    autoClose={3000}
     hideProgressBar={false}
     newestOnTop={false}
     closeOnClick

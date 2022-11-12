@@ -1,12 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { getAuth, signOut } from "firebase/auth";
 import style from '../header/Header.module.scss';
 import { Link,Navigate,NavLink, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/config";
+import {onAuthStateChanged } from "firebase/auth";
 import { FaCartPlus, FaTimes } from "react-icons/fa";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { HiDesktopComputer, HiOutlineMenuAlt3 } from "react-icons/hi";
+import { FaUserCircle } from "react-icons/fa";
+import { useDispatch } from 'react-redux';
+import { REMOVE_ACTIVE_USER, SET_ACTIVE_USER } from '../../redux/slice/authSlice';
+
+
 const logo = (
   <div className={style.logo}>
   <Link to="/">
@@ -27,7 +33,35 @@ const activeLink = ({ isActive }) => (isActive ? `${style.active}` : "");
 
 const Header = () => {
   const [showMenu, setShowMenu]= useState(false);
+  const [uName, setUName]= useState("");
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  // Monitor currently sign in user 
+useEffect(()=>{
+  const auth = getAuth();
+ onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // console.log(user);
+    const uid = user.uid;
+    // console.log(user.displayName);
+    setUName(user.UName);
+    if(user.UName == null){
+      const u1 = user.email.substring(0, user.email.indexOf("@"));
+      const uNames = u1.charAt(0).toUpperCase() + u1.slice(1);
+      setUName(uNames);
+    }
+    
+    dispatch(SET_ACTIVE_USER({
+       email: user.email,
+       useName:user.UName ? user.UName : uName,
+       userID: user.uid,
+    }));
+    } else {
+    setUName("");
+    dispatch(REMOVE_ACTIVE_USER());
+     }
+   });
+  }, [dispatch, uName]);
   const toggleMenu = ()=>{
     setShowMenu(!showMenu);
   }
@@ -66,6 +100,7 @@ const Header = () => {
         <div className={style["header-right"]} onClick={hideMenu}>
             <span className={style.links}>
               <NavLink to='/login' className={activeLink} >Login</NavLink>
+              <a href='#' className={style.person}><FaUserCircle size={16}/> Hi, {uName}</a>
               <NavLink to='/register' className={activeLink} >register</NavLink>
               <NavLink to='/order-history' className={activeLink}>My Orders</NavLink>
               <NavLink to='/' onClick={logoutUser}>Logout</NavLink>

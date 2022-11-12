@@ -49,8 +49,6 @@ const Login = () => {
   }
   // login with Google
 
-
-
 const provider = new GoogleAuthProvider();
   const signInGoogle = (e)=>{
      e.preventDefault();

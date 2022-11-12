@@ -36,7 +36,6 @@ const Reset = () => {
         <Card>
           <div className={styles.form}>
             <h2>Reset Password</h2>
-
             <form onSubmit={resetPassword}>
               <input
                 type='text'
@@ -56,7 +55,6 @@ const Reset = () => {
           </div>
           </Card>
       </section>
-      
     </>
   );
 };
