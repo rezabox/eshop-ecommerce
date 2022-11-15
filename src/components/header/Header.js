@@ -12,7 +12,7 @@ import { FaUserCircle } from "react-icons/fa";
 import { useDispatch } from 'react-redux';
 import { REMOVE_ACTIVE_USER, SET_ACTIVE_USER } from '../../redux/slice/authSlice';
 import ShowOnLogin, { ShowOnLogout } from '../hiddenLink/hiddenLink';
-
+import { AdminOnlyEmail } from '../adminOnlyRoute/AdminOnlyRoute';
 
 const logo = (
   <div className={style.logo}>
@@ -91,6 +91,13 @@ useEffect(()=>{
         <div className={showMenu ? `${style["nav-wrapper"]} ${style["show-nav-wrapper"]}`: `${style["nav-wrapper"]}`} onClick={hideMenu}>
         </div> 
         <ul onClick={hideMenu} style={{marginRight:80}} >
+          <li>
+            <AdminOnlyEmail>
+               <Link to='/admin/home'>
+                <button className='--btn --btn-primary'>Admin</button>
+               </Link>
+            </AdminOnlyEmail>
+          </li>
           <li>
              <NavLink  to="/"  className={ ({ isActive }) => (!isActive ? `${style.active}` : "")}>Home</NavLink>
           </li>

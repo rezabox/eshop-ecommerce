@@ -8,6 +8,7 @@ import Contact from './pages/contact/Contact';
 import Home from './pages/home/Home';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ProductDetails from './components/product/productDetails/ProductDetails';
 
 function App() {
   return (
