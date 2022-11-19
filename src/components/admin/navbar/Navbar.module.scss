@@ -1,0 +1,42 @@
+.navbar{
+    border-right:3px solid #ccc;
+    min-height: 86vh;
+}
+.user{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   padding: 4rem;
+   background-color: rgba(154, 208, 230, 0.87);
+   h4{
+    color: #fff;
+   }
+}
+
+
+nav ul{
+    li{
+        padding: 1rem;
+        position: relative;
+        a{
+            display: block;
+            width: 100%;
+        }
+    }
+}
+.active{
+    cursor: pointer;
+}
+.active::before{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background-color: orangered;
+}
+.border{
+    border-bottom: 2px solid #ccc;
+}
