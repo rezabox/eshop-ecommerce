@@ -44,7 +44,7 @@ const AddProduct = () => {
       "state_changed",
       (snapshot) =>{
         const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        setUploadProgress(progress)
+        setUploadProgress(progress);
       },
       (error) => {
         toast.error(error.message);
