@@ -6,16 +6,28 @@ import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import Loader from "../../components/loader/Loader";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import icon1 from "../../assets/eye-fill.svg";
+import icon2 from "../../assets/eye-slash-fill.svg";
+
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [cPassword, setCPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
+  const [icon, setIcon] = useState(icon2);
+  const [change,setChange] = useState('password');
   const navigate = useNavigate();
-
+  const handleClick = () => {
+    if (change === "password") {
+      setChange("text");
+      setIcon(icon1);
+    } else {
+      setChange("password");
+      setIcon(icon2);
+    }
+  };
   const registerUser = (e) => {
     e.preventDefault();
     if (password !== cPassword) {
@@ -39,6 +51,19 @@ const Register = () => {
 
   return (
     <>
+      <ToastContainer
+        style={{ fontSize: "15px" }}
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       {isLoading && <Loader />}
       <section className={`container ${styles.auth}`}>
         <Card>
@@ -54,19 +79,21 @@ const Register = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
               <input
-                type="password"
+                type={change}
                 placeholder="Password"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <span onClick={handleClick}><img src={icon} alt="" width={22} /></span>
               <input
-                type="password"
+                type={change}
                 placeholder="Confirm Password"
                 required
                 value={cPassword}
                 onChange={(e) => setCPassword(e.target.value)}
               />
+              <span onClick={handleClick}><img src={icon} alt="" width={22} /></span>
               <button type="submit" className="--btn --btn-primary --btn-block">
                 Register
               </button>
@@ -79,7 +106,7 @@ const Register = () => {
           </div>
         </Card>
         <div className={styles.img}>
-          <img src={registerImg} alt="Register" width="400" />
+          <img src={registerImg} alt="Register" width="600" />
         </div>
       </section>
     </>

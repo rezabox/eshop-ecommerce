@@ -1,10 +1,10 @@
 .auth {
-  min-height: 80vh;
+  min-height: 84vh;
   display: flex;
   justify-content: center;
   align-items: center;
-
   .img {
+    width: 60%;
     animation: slide-down 0.5s ease;
   }
 
@@ -26,10 +26,20 @@
         padding: 1rem;
         margin: 1rem auto;
         width: 100%;
-        border: 1px solid #777;
+        border: 2px solid #777;
         border-radius: 3px;
         outline: none;
+        transition: border 0.5s ease-in-out;
       }
+   
+      input:focus{
+          border: 2px solid rgba(16, 135, 233, 0.678);
+      }
+      span img{
+          position: absolute;
+          transform: translate(1300%,-200%);
+          cursor: pointer;
+       }
       .links {
         display: flex;
         justify-content: space-between;
@@ -46,6 +56,13 @@
       justify-content: center;
       align-items: center;
       margin-top: 1rem;
+    }
+    .reset{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px;
     }
   }
 

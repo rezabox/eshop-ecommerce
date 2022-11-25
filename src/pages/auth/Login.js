@@ -3,6 +3,8 @@ import styles from "./auth.module.scss";
 import loginImg from "../../assets/login.png";
 import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
+import icon1 from "../../assets/eye-fill.svg";
+import icon2 from "../../assets/eye-slash-fill.svg";
 import Card from "../../components/card/Card";
 import {
   GoogleAuthProvider,
@@ -17,9 +19,18 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
+  const [icon, setIcon] = useState(icon2);
+  const [change, setChange] = useState("password");
   const navigate = useNavigate();
-
+  const handleClick = () => {
+    if (change === "password") {
+      setChange("text");
+      setIcon(icon1);
+    } else {
+      setChange("password");
+      setIcon(icon2);
+    }
+  };
   const loginUser = (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -53,10 +64,11 @@ const Login = () => {
 
   return (
     <>
+      <ToastContainer style={{ fontSize: "20px" }} />
       {isLoading && <Loader />}
       <section className={`container ${styles.auth}`}>
         <div className={styles.img}>
-          <img src={loginImg} alt="Login" width="400" />
+          <img src={loginImg} alt="Login" width="500" />
         </div>
 
         <Card>
@@ -72,12 +84,15 @@ const Login = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
               <input
-                type="password"
+                type={change}
                 placeholder="Password"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <span onClick={handleClick}>
+                <img src={icon} alt="" width={22} />
+              </span>
               <button type="submit" className="--btn --btn-primary --btn-block">
                 Login
               </button>
