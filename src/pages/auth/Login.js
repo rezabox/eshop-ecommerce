@@ -64,7 +64,6 @@ const Login = () => {
 
   return (
     <>
-      <ToastContainer style={{ fontSize: "20px" }} />
       {isLoading && <Loader />}
       <section className={`container ${styles.auth}`}>
         <div className={styles.img}>

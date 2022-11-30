@@ -51,19 +51,7 @@ const Register = () => {
 
   return (
     <>
-      <ToastContainer
-        style={{ fontSize: "15px" }}
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
+   
       {isLoading && <Loader />}
       <section className={`container ${styles.auth}`}>
         <Card>
