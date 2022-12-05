@@ -28,3 +28,11 @@
         }
     }
 }
+@media screen and (max-width:600px){
+    .details{
+        flex-wrap: wrap;
+    }
+        button:nth-child(7){
+            width: 100%;
+        }
+}

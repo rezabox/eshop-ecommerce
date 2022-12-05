@@ -1,0 +1,27 @@
+.filter{
+    margin: 5px;
+    h4{
+       font-weight: 600;
+    }
+    select{
+       width: 100%;
+       padding: 10px;
+       border-radius: 5px;
+       font-size: 15px;
+       margin: 10px 0px;
+    }
+    button{
+        margin-top: 20px;
+    }
+    button,select,input{
+        cursor: pointer;
+    }
+    button:nth-child(1){
+        background: none;
+        border: none;
+        font-size: 18px;
+        margin: 10px 0px;
+        border-bottom: 1px solid #ccc;
+        width: 100%;
+    }
+}
