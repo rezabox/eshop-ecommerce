@@ -1,0 +1,44 @@
+.grid{
+    width: 24rem;
+    height: 36rem;
+    margin: 5px;
+    border-color:#fff ;
+    position: relative;
+    .img{
+        padding: 10px;
+        width: 100%;
+        overflow: hidden;
+        border-bottom:3px solid #eee ;
+        img{
+            width: 100%;
+            cursor: pointer;
+        }
+    }
+    .details{
+       text-align: center;
+       margin: 5px;
+    }
+    button{
+        width: 100%;
+        margin-top: 25px;
+    }
+    p{
+       color: orangered;
+       font-weight: 600;
+       font-size: 18px;
+    }
+    
+}
+.list {
+    width: 100%;
+    height: 28rem;
+    max-height: 32rem;
+    display: flex;
+    background-color: #fff;
+    margin: 2px 0;
+}
+@media screen and (max-width:600px){
+    img{
+        width: 100%;
+    }
+}

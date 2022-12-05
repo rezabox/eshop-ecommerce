@@ -34,3 +34,9 @@
         padding-bottom: 5px;
     }
 }
+.grid{
+   display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
+   background-color: #fffdf7;
+}

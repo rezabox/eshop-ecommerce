@@ -1,0 +1,30 @@
+.product{
+    .card{
+        padding: 5px;
+        margin-top: 6px;
+    }
+    .details{
+        padding-top:2rem ;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .content{
+            padding: 20px;
+        }
+    }
+    .img{
+        border: 2px solid #ccc;
+        padding: 5px;
+    }
+    .price{
+        color: orangered;
+    }
+    .count{
+        display: flex;
+        align-items: center;
+        padding:20px 0px;
+        b{
+            padding: 0px 10px;
+        }
+    }
+}
