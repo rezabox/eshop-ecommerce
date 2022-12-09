@@ -31,7 +31,6 @@ const ProductDetails = () => {
   useEffect(() => {
     getProduct();
   }, []);
-
   return (
     <section>
       <div className={`container ${styles.product}`}>

@@ -24,4 +24,30 @@
         border-bottom: 1px solid #ccc;
         width: 100%;
     }
+    .category button {
+        display: block;
+        text-align: left;
+        width: 80%;
+        height: 2rem;
+        font-size: 1.6rem;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        border-bottom: 1px solid #777;
+      }
+      .active {
+        position: relative;
+        padding-left: 1rem;
+      }
+      
+      .active::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 2px;
+        height: 100%;
+        background-color: var(--color-danger);
+      }
+      
 }
