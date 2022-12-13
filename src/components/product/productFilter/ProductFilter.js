@@ -6,8 +6,6 @@ import {
   FILTER_BY_PRICE,
 } from "../../../redux/slice/filterSlice";
 import {
-  selectMaxPrice,
-  selectMinPrice,
   selectProducts,
 } from "../../../redux/slice/productSlice";
 import styles from "./ProductFilter.module.scss";

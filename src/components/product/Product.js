@@ -51,7 +51,7 @@ const Product = () => {
             <ProductList products={products} />
           )}
           <div className={styles.icon} onClick={toggleFilter}>
-            <FaCogs size={22} color="oranged"/>
+            <FaCogs size={21} color="oranged"/>
             <p>
               <b>{showFilter ? "Hide Filter" : "Show Filter"}</b>
             </p>
