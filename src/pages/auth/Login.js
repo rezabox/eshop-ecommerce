@@ -12,8 +12,10 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../../firebase/config";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import Loader from "../../components/loader/Loader";
+import { useSelector } from "react-redux";
+import { selectPreviousURL } from "../../redux/slice/cartSlice";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -22,6 +24,7 @@ const Login = () => {
   const [icon, setIcon] = useState(icon2);
   const [change, setChange] = useState("password");
   const navigate = useNavigate();
+  const previousURL = useSelector(selectPreviousURL);
   const handleClick = () => {
     if (change === "password") {
       setChange("text");
@@ -31,6 +34,13 @@ const Login = () => {
       setIcon(icon2);
     }
   };
+  const redirectUser = ()=>{
+    if(previousURL.includes("cart")){
+      return navigate("/cart");
+    }else{
+      navigate("/");
+    }
+  }
   const loginUser = (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -40,7 +50,7 @@ const Login = () => {
         // const user = userCredential.user;
         setIsLoading(false);
         toast.success("Login Successful...");
-        navigate("/");
+        redirectUser();
       })
       .catch((error) => {
         setIsLoading(false);
@@ -55,7 +65,7 @@ const Login = () => {
       .then((result) => {
         // const user = result.user;
         toast.success("Login Successfully");
-        navigate("/");
+        redirectUser();
       })
       .catch((error) => {
         toast.error(error.message);

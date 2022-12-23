@@ -19,7 +19,7 @@ const cartSlice = createSlice({
         (item) => item.id === action.payload.id
       );
       if (productItem >= 0) {
-        state.cartItems[productItem] += 1;
+        state.cartItems[productItem].cartQuantity += 1;
         toast.info(`${action.payload.name} increces by one`, {
           position: "top-left",
         });
@@ -40,7 +40,7 @@ const cartSlice = createSlice({
       );
       if (state.cartItems[productIndex].cartQuantity > 1) {
         state.cartItems[productIndex].cartQuantity -= 1;
-        toast.success(`${action.payload.name} remove item`, {
+        toast.info(`${action.payload.name} remove item`, {
           position: "top-left",
         });
       } else if (state.cartItems[productIndex].cartQuantity === 1) {
@@ -80,7 +80,7 @@ const cartSlice = createSlice({
       });
       const totalAmount = array.reduce((a, b) => {
         return a + b;
-      });
+      }, 0);
       state.cartTotalAmount = totalAmount;
     },
     CALCULATE_TOTAL_QUANTILY(state, action) {
@@ -92,7 +92,7 @@ const cartSlice = createSlice({
       });
       const totalQuantity = array.reduce((a, b) => {
         return a + b;
-      });
+      },0);
       state.cartTotalQuantity = totalQuantity;
     },
     SAVE_URL(state, action) {
