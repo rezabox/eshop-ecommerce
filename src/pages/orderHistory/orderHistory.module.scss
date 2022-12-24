@@ -1,0 +1,43 @@
+.table{
+ padding: 5px;
+ width: 100%;
+ overflow-x: hidden;
+ table{
+    border-collapse:collapse ;
+    font-size: 1.5rem;
+    width: 100%;
+    thead{
+        border-top:3px solid var(--light-blue);
+        border-bottom: 3px solid var(--light-blue);
+    }
+    th{
+        border: 2px solid #eee;
+    }
+    td{
+        vertical-align: top;
+        text-align: center;
+        padding: 5px;
+        &.icons {
+            > * {
+                margin-right: 5px;
+                cursor: pointer;
+            }
+        }
+    }
+    tr{
+        border-bottom: 1px solid #ccc;
+        cursor:pointer;
+    }
+    tr:nth-child(even){
+        background-color: #eee;
+    }
+    .pending{
+       color: red;
+       font-weight: 400;
+    }  
+    .delivered{
+       color:green;
+       font-weight: 500;
+    }
+ } 
+}

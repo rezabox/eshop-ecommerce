@@ -26,5 +26,6 @@ const orderSlice = createSlice({
     },
 });
 export const { STORE_ORDERS } = orderSlice.actions;
-export const orderHistory = (state)=> state.orders.orderHistory;
+export const selectOrderHistory = (state)=> state.orders.orderHistory;
+export const selectOrderAmount = (state)=> state.orders.totalOrderAmount;
 export default orderSlice.reducer;

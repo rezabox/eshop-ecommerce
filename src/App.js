@@ -8,6 +8,9 @@ import { Header, Footer } from "./components";
 import AdminOnlyRoute from "./components/adminOnlyRoute/AdminOnlyRoute";
 import ProductDetails from "./components/product/productDetails/ProductDetails";
 import Cart from "./pages/cart/Cart";
+import OrderHistory from "./pages/orderHistory/orderHistory";
+
+
 function App() {
   return (
     <>
@@ -30,6 +33,7 @@ function App() {
           />
           <Route path="/product-details/:id" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart/>} />
+          <Route path="/order-history" element={<OrderHistory/>}/>
         </Routes>
         <Footer />
       </BrowserRouter>
