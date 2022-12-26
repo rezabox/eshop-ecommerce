@@ -1,0 +1,37 @@
+.product .card {
+  padding: 5px;
+  margin-top: 6px;
+}
+.product .details {
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.product .details .content {
+  padding: 20px;
+}
+.product .img {
+  border: 2px solid #ccc;
+  padding: 5px;
+}
+.product .price {
+  color: orangered;
+}
+.product .count {
+  display: flex;
+  align-items: center;
+  padding: 20px 0px;
+}
+.product .count b {
+  padding: 0px 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .details {
+    flex-wrap: wrap;
+  }
+  button:nth-child(7) {
+    width: 100%;
+  }
+}/*# sourceMappingURL=ProductDetails.module.css.map */

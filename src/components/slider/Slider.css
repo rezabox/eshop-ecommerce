@@ -1,0 +1,128 @@
+.slider {
+  position: relative;
+  width: 100%;
+  height: 85vh;
+  overflow: hidden;
+  background-color: var(--color-dark);
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: all 0.5s ease;
+}
+
+@media screen and (min-width: 500px) {
+  .slide img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+.slide img {
+  height: 100%;
+}
+
+.content {
+  position: absolute;
+  text-align: center;
+  top: 26rem;
+  left: 50%;
+  opacity: 0;
+  width: 50%;
+  padding: 3rem;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  flex-direction: column;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  -webkit-animation: slide-up 0.75s ease 0.5s;
+          animation: slide-up 0.75s ease 0.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+.content h1 {
+  font-size: 5rem;
+}
+
+@-webkit-keyframes slide-up {
+  0% {
+    top: 25rem;
+  }
+  100% {
+    top: 20rem;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    top: 25rem;
+  }
+  100% {
+    top: 20rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  .content {
+    width: 80%;
+  }
+  img {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+.content > * {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.current {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.current .content {
+  opacity: 1;
+}
+
+.arrow {
+  border: 2px solid orangered;
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  z-index: 2;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.arrow:hover {
+  background: #fff;
+}
+
+.next {
+  right: 1.5rem;
+  color: orangered;
+}
+
+.prev {
+  left: 1.5rem;
+  color: orangered;
+}
+
+hr {
+  height: 2px;
+  background: #fff;
+  width: 50%;
+}/*# sourceMappingURL=Slider.css.map */

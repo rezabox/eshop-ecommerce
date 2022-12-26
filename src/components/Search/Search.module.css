@@ -1,0 +1,19 @@
+* {
+  outline: none;
+}
+
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.search .icon {
+  position: absolute;
+  margin-left: 2px;
+}
+.search input {
+  padding: 10px 28px;
+  font-size: 15px;
+  border: 2px solid;
+  border-radius: 12px;
+}/*# sourceMappingURL=Search.module.css.map */
